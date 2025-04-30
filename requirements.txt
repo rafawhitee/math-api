@@ -1,0 +1,7 @@
+beautifulsoup4==4.12.3
+fastapi==0.115.12
+sympy==1.14.0
+gunicorn==23.0.0
+pydantic==2.11.3
+python-dotenv==1.1.0
+uvicorn==0.34.2
