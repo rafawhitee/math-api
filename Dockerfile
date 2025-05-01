@@ -27,9 +27,7 @@ COPY --from=builder /venv /venv
 ENV VIRTUAL_ENV=/venv
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
-ENV PYTHONPATH="/ia-llm:/ia-llm/app:/ia-llm/app/config:/ia-llm/app/middlewares:/ia-llm/app/routers:/ia-llm/app/entities:/ia-llm/app/repositories:/ia-llm/app/logger:/ia-llm/app/decorators:/ia-llm/app/exceptions:/ia-llm/app/models:/ia-llm/app/models/requests:/ia-llm/app/models/responses:/ia-llm/app/models/exception:/ia-llm/app/services:/ia-llm/app/utils"
-
-WORKDIR /ia-llm
+WORKDIR /math-api
 
 COPY app app
 COPY start-gunicorn.sh .
@@ -37,7 +35,7 @@ COPY start-gunicorn.sh .
 RUN chmod +x ./start-gunicorn.sh
 
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
-RUN chown -R appuser:appgroup /ia-llm
+RUN chown -R appuser:appgroup /math-api
 USER appuser
 
 EXPOSE 8000

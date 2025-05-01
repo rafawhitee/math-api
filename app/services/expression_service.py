@@ -1,5 +1,6 @@
+from typing import Any
 from fastapi import HTTPException, status
-from sympy import Eq, symbols, solve, sympify, simplify
+from sympy import Eq, symbols, solve, sympify, simplify, factor
 from sympy.core.sympify import SympifyError
 from models.requests.expression_request import ExpressionRequest
 from models.responses.expression_response import ExpressionResponse
@@ -14,12 +15,21 @@ class ExpressionService:
         :return: Dictionary with steps or error
         """
         try:
-            x = symbols('x')
             expression: str = req.expression
-            expression_sympy = sympify(expression)
-            simplified = simplify(expression_sympy)
-            solutions = solve(Eq(simplified, 0), x)
-            return ExpressionResponse(input=str(expression), simplified=str(simplified), solutions=[str(s) for s in solutions])
+            target: str = req.target
+
+            vars: Any = symbols(req.variables)    
+            expression_sympy: Any = sympify(expression)
+            expression_simplified: Any = simplify(expression)
+            expression_factored: Any = factor(expression)
+
+            target_sympy: Any = sympify(target)
+
+            equation: Any = Eq(expression_sympy, target_sympy)
+            solutions = solve(equation, vars)
+            return ExpressionResponse(input=str(expression), simplified=str(expression_simplified), 
+                                      factored=str(expression_factored),
+                                      solutions=[str(s) for s in solutions])
         except SympifyError as e:
             raise HTTPException(
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
