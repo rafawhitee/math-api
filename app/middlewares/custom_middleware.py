@@ -1,9 +1,10 @@
 from fastapi import Request, Response
 from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.responses import Response
+from utils.sanitizer_util import has_query_params, sanitize_query_params
 
 class CustomMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):   
-        from utils.sanitizer_util import has_query_params, sanitize_query_params
         raw_query_params = request.query_params
         if has_query_params(raw_query_params):
             sanitized_query_params = sanitize_query_params(raw_query_params)

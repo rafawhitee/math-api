@@ -7,11 +7,11 @@ from models.responses.expression_response import ExpressionResponse
 service = ExpressionService()
 
 expressions_router = APIRouter(
-    prefix=f"{Config.PREFIX}/v1/expressions",
-    tags=["functions"]
+    prefix=f"{Config.PREFIX}/v1/math/expressions",
+    tags=["expressions"]
 )
 
 @expressions_router.get("", response_model=ExpressionResponse)
 @expressions_router.get("/", response_model=ExpressionResponse)
-def resolve_equation(expression_request: ExpressionRequest):
-   return service.resolve_equation(expression_request)
+def simplify(req: ExpressionRequest):
+   return service.simplify(req)
