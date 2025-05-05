@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "90437ee8-ebd6-480f-b7d5-12ad14461abf",
+		"name": "Science",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7097514"
+	},
+	"item": [
+		{
+			"name": "Math",
+			"item": [
+				{
+					"name": "Expressions",
+					"item": [
+						{
+							"name": "Simplify",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"expression\": \"x**2 - 6*x + 9\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apiUrl}}/v1/math/expressions",
+									"host": [
+										"{{apiUrl}}"
+									],
+									"path": [
+										"v1",
+										"math",
+										"expressions"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Equations",
+					"item": [
+						{
+							"name": "Resolve",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"expression\": \"x**2 - 9 + 3*y\",\r\n    \"variables\": [\"x\", \"y\"],\r\n    \"target\": \"5*y\",\r\n    \"simplify\": true,\r\n    \"factor\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apiUrl}}/v1/math/equations",
+									"host": [
+										"{{apiUrl}}"
+									],
+									"path": [
+										"v1",
+										"math",
+										"equations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Functions",
+					"item": [
+						{
+							"name": "First-Degree",
+							"item": [
+								{
+									"name": "Find X",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"expression\": \"a*x + b\",\r\n  \"target\": \"10\",\r\n  \"variables\": [\"x\", \"a\", \"b\"],\r\n  \"values\": {\r\n    \"a\": 2,\r\n    \"b\": 1\r\n  }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{apiUrl}}/v1/math/functions",
+											"host": [
+												"{{apiUrl}}"
+											],
+											"path": [
+												"v1",
+												"math",
+												"functions"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find Y",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"expression\": \"a*x + b\",\r\n  \"target\": \"y\",\r\n  \"variables\": [\"x\", \"a\", \"b\"],\r\n  \"values\": {\r\n    \"a\": 2,\r\n    \"b\": 1,\r\n    \"x\": 3\r\n  }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{apiUrl}}/v1/math/functions",
+											"host": [
+												"{{apiUrl}}"
+											],
+											"path": [
+												"v1",
+												"math",
+												"functions"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Quadratic",
+							"item": [
+								{
+									"name": "Find X",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"expression\": \"a*x**2 + b*x + c\",\r\n  \"target\": \"64\",\r\n  \"variables\": [\"x\", \"a\", \"b\", \"c\"],\r\n  \"values\": {\r\n    \"a\": 2,\r\n    \"b\": 1,\r\n    \"c\": 8\r\n  }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{apiUrl}}/v1/math/functions",
+											"host": [
+												"{{apiUrl}}"
+											],
+											"path": [
+												"v1",
+												"math",
+												"functions"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find Y",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"expression\": \"a*x**2 + b*x + c\",\r\n  \"target\": \"y\",\r\n  \"variables\": [\"x\", \"a\", \"b\", \"c\"],\r\n  \"values\": {\r\n    \"a\": 2,\r\n    \"b\": 1,\r\n    \"c\": 8\r\n  }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{apiUrl}}/v1/math/functions",
+											"host": [
+												"{{apiUrl}}"
+											],
+											"path": [
+												"v1",
+												"math",
+												"functions"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
