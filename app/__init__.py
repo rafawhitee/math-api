@@ -41,7 +41,8 @@ def create_app():
     from middlewares.custom_middleware import CustomMiddleware
     app.add_middleware(CustomMiddleware)
 
-    from routers.math import expressions_router, equations_router
+    from routers.math import expressions_router, equations_router, functions_router
     app.include_router(equations_router.equations_router)
     app.include_router(expressions_router.expressions_router)
+    app.include_router(functions_router.functions_router)
     return app

@@ -11,7 +11,7 @@ equations_router = APIRouter(
     tags=["equations"]
 )
 
-@equations_router.get("", response_model=EquationResponse)
-@equations_router.get("/", response_model=EquationResponse)
-def simplify(req: EquationRequest):
+@equations_router.post("", response_model=EquationResponse)
+@equations_router.post("/", response_model=EquationResponse)
+def resolve(req: EquationRequest):
    return service.resolve(req)

@@ -11,7 +11,7 @@ expressions_router = APIRouter(
     tags=["expressions"]
 )
 
-@expressions_router.get("", response_model=ExpressionResponse)
-@expressions_router.get("/", response_model=ExpressionResponse)
+@expressions_router.post("", response_model=ExpressionResponse)
+@expressions_router.post("/", response_model=ExpressionResponse)
 def simplify(req: ExpressionRequest):
    return service.simplify(req)
